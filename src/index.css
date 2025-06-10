@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    background: linear-gradient(135deg, #002140 0%, #344736 50%, #342e29 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Apple-style Scrollbar for Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(253, 251, 247, 0.25);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(253, 251, 247, 0.4);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Firefox scrollbar styling */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(253, 251, 247, 0.25) transparent;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    background: rgba(52, 46, 41, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(253, 251, 247, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 33, 64, 0.37);
+  }
+
+  .glass-button {
+    @apply glass-morphism;
+    background: rgba(52, 46, 41, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-button:hover {
+    background: rgba(52, 46, 41, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(255, 192, 131, 0.3);
+  }
+
+  .glass-button:active {
+    transform: translateY(0);
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .message-bubble {
+    @apply glass-morphism rounded-xl px-3 py-2 max-w-xs break-words;
+  }
+
+  .user-message {
+    @apply message-bubble;
+    background: rgba(134, 49, 43, 0.25);
+    border: 1px solid rgba(255, 119, 74, 0.4);
+    margin-left: auto;
+    animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .assistant-message {
+    @apply message-bubble;
+    background: rgba(52, 71, 54, 0.25);
+    border: 1px solid rgba(184, 220, 153, 0.4);
+    margin-right: auto;
+    animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .typing-indicator {
+    @apply glass-morphism rounded-xl px-3 py-2;
+    background: rgba(52, 71, 54, 0.2);
+    border: 1px solid rgba(184, 220, 153, 0.3);
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .typing-dots {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .typing-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(253, 251, 247, 0.7);
+    animation: wave 1.4s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .voice-ripple {
+    position: absolute;
+    border: 2px solid rgba(52, 71, 54, 0.4);
+    border-radius: 50%;
+    animation: ripple 1.5s ease-out infinite;
+  }
+
+  /* Custom scrollbar container for conversation area */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(253, 251, 247, 0.25) transparent;
+    transition: scrollbar-color 0.2s ease;
+  }
+
+  .custom-scrollbar:hover {
+    scrollbar-color: rgba(253, 251, 247, 0.4) transparent;
+  }
+
+  /* Auto-hide scrollbar functionality */
+  .scrollbar-auto-hide {
+    transition: opacity 0.2s ease;
+  }
+
+  .scrollbar-auto-hide:not(:hover) {
+    animation: scrollbar-hide 1.5s ease-out 1.5s forwards;
+  }
+
+  .scrollbar-auto-hide:hover {
+    opacity: 1;
+    animation: none;
+  }
+
+  /* Enhanced glass effects for brand integration */
+  .brand-glass-primary {
+    background: rgba(52, 46, 41, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(253, 251, 247, 0.15);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 33, 64, 0.2),
+      inset 0 1px 0 rgba(253, 251, 247, 0.1);
+  }
+
+  .brand-glass-accent {
+    background: rgba(255, 192, 131, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 192, 131, 0.2);
+    box-shadow: 0 4px 16px 0 rgba(255, 192, 131, 0.15);
+  }
+} 
