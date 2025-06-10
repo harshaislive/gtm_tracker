@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react';
+import { Mic, MicOff, Phone } from 'lucide-react';
 import { ConnectionStatus, SpeechStatus } from '../types/vapi.types';
 
 interface VoiceButtonProps {
@@ -38,10 +38,7 @@ export const VoiceButton: React.FC<VoiceButtonProps> = ({
     return 'text-beforest-off-white';
   };
 
-  const getRippleColor = () => {
-    if (isListening) return 'border-beforest-forest-green/40';
-    return 'border-beforest-warm-yellow/30';
-  };
+
 
   const renderIcon = () => {
     if (isConnecting) {

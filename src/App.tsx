@@ -1,4 +1,3 @@
-import React from 'react';
 import { VoiceButton } from './components/VoiceButton';
 import { ConversationDisplay } from './components/ConversationDisplay';
 import { useVapi } from './hooks/useVapi';
