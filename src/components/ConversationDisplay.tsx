@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Message } from '../types/vapi.types';
+import { Mic, Type } from 'lucide-react';
 
 interface ConversationDisplayProps {
   messages: Message[];
@@ -23,9 +24,24 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, index }) => {
       }}
     >
       <div className={isUser ? 'user-message' : 'assistant-message'}>
+        {/* Input Method Indicator for User Messages */}
+        {isUser && message.inputMethod && (
+          <div className="flex items-center gap-1 mb-1 opacity-60">
+            {message.inputMethod === 'voice' ? (
+              <Mic className="w-3 h-3" />
+            ) : (
+              <Type className="w-3 h-3" />
+            )}
+            <span className="text-xs uppercase tracking-wide">
+              {message.inputMethod}
+            </span>
+          </div>
+        )}
+        
         <p className="text-beforest-off-white text-xs leading-relaxed m-0">
           {message.content}
         </p>
+        
         <span className="text-xs text-beforest-soft-gray/50 mt-1 block opacity-75">
           {new Date(message.timestamp).toLocaleTimeString([], { 
             hour: '2-digit', 
@@ -71,10 +87,10 @@ export const ConversationDisplay: React.FC<ConversationDisplayProps> = ({
     <div className="glass-morphism rounded-3xl p-5 w-full max-w-2xl mx-auto">
       <div className="mb-4">
         <h2 className="text-beforest-off-white text-lg font-medium text-center">
-          GTM Command Center
+          Evaluation Conversation
         </h2>
         <p className="text-beforest-off-white/65 text-xs text-center mt-1">
-          Speak your Trello commands and GTM tasks
+          Voice & text conversation with the Bespoke Agent
         </p>
       </div>
       
@@ -95,20 +111,15 @@ export const ConversationDisplay: React.FC<ConversationDisplayProps> = ({
                   strokeLinecap="round" 
                   strokeLinejoin="round" 
                   strokeWidth={2} 
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" 
                 />
               </svg>
             </div>
             <p className="text-beforest-off-white/60 text-xs">
-              Ready for GTM commands...
+              Ready to start your evaluation...
             </p>
-            <p className="text-beforest-off-white/40 text-xs mt-1.5 space-x-1">
-              <span className="text-beforest-warm-yellow/70">Try:</span>
-              <span>"Add task"</span>
-              <span>•</span>
-              <span>"Update status"</span>
-              <span>•</span>
-              <span>"Show progress"</span>
+            <p className="text-beforest-off-white/40 text-xs mt-1.5">
+              <span className="text-beforest-warm-yellow/70">Use voice button or text input below</span>
             </p>
           </div>
         ) : (

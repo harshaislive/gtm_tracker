@@ -3,6 +3,7 @@ export interface Message {
   role: 'user' | 'assistant';
   content: string;
   timestamp: number;
+  inputMethod?: 'voice' | 'text';
 }
 
 export interface VapiMessage {
@@ -21,4 +22,20 @@ export interface VapiConfig {
 }
 
 export type ConnectionStatus = 'idle' | 'connecting' | 'connected' | 'disconnected';
-export type SpeechStatus = 'idle' | 'listening' | 'speaking' | 'processing'; 
+export type SpeechStatus = 'idle' | 'listening' | 'speaking' | 'processing';
+
+// New types for evaluation system
+export interface EvaluationState {
+  currentQuestion: string | null;
+  questionNumber: number;
+  totalQuestions: number;
+  evaluationStep: 'greeting' | 'validation' | 'questions' | 'summary' | 'complete';
+  userName: string | null;
+  userEmail: string | null;
+}
+
+export interface QuestionProgress {
+  current: number;
+  total: number;
+  percentage: number;
+} 

@@ -1,16 +1,18 @@
-# 🎤 GTM Tracker Beforest
+# 🎤 Bespoke Agent Evaluation - Beforest
 
-A sophisticated voice-powered Trello management interface built with React, TypeScript, and VAPI, featuring Beforest's signature glassmorphism design with world-class animations.
+A sophisticated voice-powered communication skills evaluation system built with React, TypeScript, and VAPI, featuring Beforest's signature glassmorphism design with world-class animations.
 
 ## ✨ Features
 
 - 🎨 **Beforest Brand Design** - Beautiful glassmorphism UI with authentic brand colors
 - 🎭 **World-Class Animations** - Smooth transitions and micro-interactions
-- 💬 **Voice-Powered GTM Management** - Control Trello boards with voice commands
-- 🌊 **Real-time Task Updates** - See your GTM progress update instantly
+- 💬 **Dual Input Methods** - Voice & text input for maximum accessibility
+- 🌊 **Real-time Progress Tracking** - See evaluation progress and current questions instantly
 - 🎯 **Interactive Voice Interface** - Visual feedback with ripple effects and status indicators
+- ⌨️ **Text Input Alternative** - Type responses when voice isn't suitable
 - 📱 **Responsive Design** - Perfect on desktop and mobile devices
-- 🔊 **Smart Voice Recognition** - Advanced speech processing for GTM commands
+- 🔊 **Smart Voice Recognition** - Advanced speech processing for evaluation responses
+- 🏷️ **Input Method Indicators** - Visual cues showing how each message was sent
 
 ## 🚀 Quick Start
 
